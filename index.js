@@ -72,6 +72,14 @@ async function run() {
       res.send(result);
     });
 
+    // Delete single coffee
+    app.delete('/coffees/:id', async(req, res) => {
+      console.log(req.params.id);
+      const query = {_id: new ObjectId(req.params.id)};
+      const result = await coffeeCollection.deleteOne(query)
+      res.send(result)
+    })
+
 
 
 
